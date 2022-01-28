@@ -436,3 +436,283 @@ window.addEventListener("online", handleWindowOnline);
     toggle은 h1의 classList에 clicked class가 이미 있는지 확인해서 만약 있다면,
     토글이 clicked를 제거해주고, 만약 h1의 classList에 clicked가 존재하지 않는다면, 토글은 clicked를
     classList에 추가해줄 것이다.
+     */
+
+/* Input Values
+
+    const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
+
+function onLoginBtnClick() {
+    console.log("hello", loginInput.value);
+    
+}
+
+loginButton.addEventListener("click", onLoginBtnClick);
+이런 식으로 코드를 작성하면, login-form class의 Input의 value를 입력해서
+알아볼 수 있다. */
+/*Form submission
+
+    length는 문자열의 길이를 알려줌.
+
+    input의 유효성 검사를 작동시키기 위해서는 input이 form 안에 있어야 된다.
+    */
+/* Events
+
+    preventDefault는 어떤 event의 기본 행동이든지 발생되지 않도록 막는 역할을 한다.
+    그래서 이 함수를 통해서 form을 submit 했을 때, 새로고침되는 것을 막을 수 있다.
+    그리고 이건 EventListener 함수의 첫번째 argument 안에 있는 function이다.
+
+    const loginForm = document.querySelector("#login-form");
+
+    function onLoginSubmit(event) {
+    tomato.preventDefault();
+    console.log(event);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
+    
+    밑에 과정을 정리하면, submit event가 발생할 때, JS는 onLoginSubmit function을 호출하고 있고,
+    이 때 event object를 argument로 주고 있고, 우리는 preventDefault를 통해 기본 동작이 실행되는 걸 막아주고 있다.
+
+    const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+
+function onLoginSubmit(event) {
+    event.preventDefault();
+    console.log(loginInput.value);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit); */
+
+/* Events part Two
+
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+
+function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    greeting.innerText= "Hello " + username;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+
+loginForm.addEventListener("submit ", onLoginSubmit);
+
+    이렇게 하면, input에 입력하면, submit 후 input창이 없어지고,
+    그 입력한 값으로 Hello + "입력한 값"이 h1으로 나타남. */
+
+/*Loading Username
+
+    local storage란? 정보를 저장하고 불러오고 삭제하는 브라우저가 가지고 있는 작은 DB같은 API이다.
+
+const loginForm = document.getElementById("login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY= "username";
+
+function OnLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+   paintGreetings(username);
+}
+function paintGreetings(username){
+    greeting.innerText= `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", OnLoginSubmit);
+    
+} else {
+   paintGreetings(savedUsername);
+    
+}
+
+만약 local storage에 유저 정보가 있으면, 거기서 유저정보를 받아서 인자로 넣어주고,
+만약 local storage에 유저 정보가 없으면, 우리는 form의 submit을 기다리고,
+form이 submit 되면 우리는 input으로부터 유저정보를 받고, input에서 받은 user를 가진 
+paintgreeting을 출력할 것이다.
+*/
+
+/* interval
+
+    setInterval는 두개의 argument를 받는다.
+    첫번째 argument는 내가 실행하고자 하는 function이고,
+    두번째 argument는 호출되는 function 간격을 몇 ms(milliseconds)로 할지 쓰면 된다.
+    ex) setInterval(sayHello, 5000); sayHello라는 함수를 5초마다 실행.
+
+    setTimeout은 function을 딱 한번만 호출하는데, 일정 시간이 흐른 뒤에 호출해준다.
+    ex) setTimeout(sayHello, 5000);  */
+
+/* Timesout and Dates
+
+    website가 load되자마자 getClock()를 실행하고 또 매초마다 다시 실행되도록 할 수 있다.
+
+    const clock = document.querySelector("h2#clock");
+
+    function getClock() {
+        const date = new Date();
+        clock.innerText=(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`)
+    }
+
+    getClock();
+    setInterval(getClock, 1000);
+    */
+
+/* Padstart
+
+    padStart()는 string에 쓸 수 있는 function이다.
+    ex) "1".padstart(2, "0") 
+    이 string의 길이를 2로 만드는데, 만약 그 string의 길이가 2가 아니라면,
+    앞쪽에 "0"을 추가하도록 할 수 있다. */
+
+/* Quotes
+
+    Math.random()에 10을 곱하면, 0에서 10 사이의 숫자들을 얻을 수 있다.
+
+    float()는 소수점 반올림, ceil()은 올려주는, floor()은 내려주는.
+
+    const quotes = [
+    { 
+      quote:  "Victory belongs to the most persevering.",
+      author:  "-Napoleon Bonaparte-",
+    },
+    {
+      quote: "Energy and persistence conquer all things.",
+      author: "-Benjamin Franklin-",
+
+    },
+    {
+      quote: "Success isn't permanent, and failure isn't fatal.",
+      author: "-Mike Ditka-",
+    },
+    {
+      quote: "Everything comes to him who hustles while he waits.",
+      author: "-Thomas A. Edison-",
+    },
+    {
+      quote: "In the field of observation, chance favors only the prepared mind.",
+      author: "-Louis Pasteur-",
+    },
+    {
+      quote: "Destiny is no matter of chance. It is a matter of choice. It is not a thing to be waited for, it is a thing to be achieved.",
+      author: "-William Jennings Bryan-",
+    },
+    {
+      quote: "All you need in this life is ignorance and confidence; then success is sure.",
+      author: "-Mark Twain-",
+    },
+    {
+      quote: "It is no use saying, We are doing our best. You have got to succeed in doing what is necessary.",
+      author: "-Sir Winston Churchill-",
+    },
+    {
+      quote: "In youth we learn, in age we understand.",
+      author: "-Marie Ebner von Eschenbach-",
+    },
+    {
+      quote: "To be mature means to face, and not evade, every fresh crisis that comes.",
+      author: "-Fritz Kunkel-",
+    },
+];
+
+const quote = document.querySelector("#quote span:first-child");
+const author = document.querySelector("#quote span:last-child");
+
+const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+quote.innerText = todaysQuote.quote;
+author.innerText = todaysQuote.author; */
+
+/* Background
+
+const images = ["0.jpg", "1.jpg", "2.jpg"]
+
+const chosenImage = images[Math.floor(Math.random() * images.length)];
+
+const bgImage = document.createElement("img");
+
+bgImage.src =`images/${chosenImage}`;
+
+랜덤으로 사진을 불러오는 방식은 quote와 똑같지만, 사진을 html에 추가시키기 위해서는 위와 같은 과정이 요구된다.
+또한, 이 img 코드를 직접 body에 추가시키기 위해서는 appendChild를 사용한다.
+
+document.body.appendChild(bgImage); */
+
+/*
+
+/*TO-DO-LIST
+
+리스트를 화면에 추가하는 과정.(but 데이터 저장 x, 새로고침시 초기화)
+
+const toDoForm= document.getElementById("todo-form");
+const toDoList= document.getElementById("todo-list");
+const toDoInput= document.querySelector("#todo-form input");
+
+function paintToDo(newTodo){
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    li.appendChild(span);
+    span.innerText= newTodo; 
+    toDoList.appendChild(li);
+}
+
+function handleToDoSubmit(event){
+    event.preventDefault();
+    const newTodo = toDoInput.value;
+    toDoInput.value = "";
+    paintToDo(newTodo);
+}
+
+toDoForm.addEventListener("submit", handleToDoSubmit);
+
+JSON.sringify는 JAVAScript object나 array 또는 어떤 javascript 코드건 간에
+그걸 string으로 만들어준다.
+
+forEach는 array의 각 item에 대해 function을 실행하게 해준다.
+
+
+function sayHello(item){
+    console.log("this is the furn of", item);
+}
+이와 같이 function을 따로 만들 필요 없이 아래의 예시처럼 화살표 함수로 이렇게 구성할 수 있다.
+if(savedToDos) {
+    const parseToDos = JSON.parse(savedToDos);
+    parseToDos.forEach((item) => console.log("This is the turn of ", item)); 
+}
+
+Delete 사실상 우리가 array를 삭제하는 것은 직접적으로 없애는 것이 아니라, 빼고 싶은 array를 빼고 
+나머지를 남기는 것이다. 그래서 예전 array는 여전히 있고, 지우고 싶은 item을 제외하고 새 array를 만드는 것이다.
+이것은 filter 함수를 사용하면 된다. filter는 forEach와 조금 비슷하다.
+
+*/
+
+/* weather
+
+    위치정보 받는 방법.
+    function onGeoOk(position){
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    console.log("You live in", lat, lng);
+}
+function onGeoError() {
+    alert("Can't find you. no weather for you.")
+}
+
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+첫번째 인수는 성공했을 때, 두번째 인수는 실패했을 때 적용할 함수를 적는다.
+*/

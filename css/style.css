@@ -1,0 +1,129 @@
+body{
+    font-family: 'Shadows Into Light', cursive;
+    margin:0;
+}
+.hidden{
+    display:none;
+}
+
+.SearchAndWeather{
+    display:flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.side_weather{
+    color:white;
+    text-align: right;
+    font-size:30px;
+    font-weight: bold;
+}
+.weatherAndTemperate{
+    text-decoration-line: underline;
+}
+.region{
+    text-decoration-line: underline;
+}
+.initial{
+    margin-top:1%;
+    color:white;
+    position: relative;
+}
+
+.time{
+    cursor: default;
+    font-size: 1050%;
+    letter-spacing: -5px;
+    text-align: center;
+    margin:auto;
+}
+  
+.initial h1{
+    text-align: center;
+    font-size:70px;
+    margin:auto;
+}
+.name_form{
+    text-align: center;
+    margin:auto;
+}
+.formsWithQuote{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+.Quote{
+    height:100px;
+    margin-top:150px;
+    font-size:30px;
+    text-align: center;
+    color:white;
+}
+.form{
+    width:300px;
+    height:300px;
+    text-align: center;
+    background-color: rgb(226, 174, 76);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
+    
+}
+
+.list{
+    text-align: left;
+    font-size:20px;
+    font-weight: bold;
+    text-decoration-line: underline;
+   
+}
+.form_input1{
+    border:none;
+    background:rgba(0,0,0,0.0);
+    color:#fff;
+    width:200px;
+    height:30px;
+    border-bottom:2px solid white;
+}
+.form_input2{
+    border:none;
+    background:rgba(0,0,0,0.0);
+    color:black;
+    width:200px;
+    height:30px;
+    border-bottom:2px solid black;
+    
+}
+img{
+    position: absolute;
+    top:0;
+    z-index: -1;
+    width : 100%;
+    height: 100%;
+}
+
+.Search{
+    width:300px;
+    height:40px;
+    background:rgba(0,0,0,0.0);
+    border:none;
+    margin-top:24px;
+    display:flex;
+    position:relative;
+    border:2px solid white;
+  
+   
+  }
+.Search> form > input{
+    border:none;
+    width:250px;
+    height:40px;
+    background:rgba(0,0,0,0.0);
+    color:white;
+    padding-left:10px;
+   
+  }
+  
+.Search> form > span{
+  width:50px;
+  color:white;
+  cursor:pointer;
+}
