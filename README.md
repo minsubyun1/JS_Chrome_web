@@ -17,4 +17,6 @@
 <li>Java Script</li>
 
 <h1>Advanced Feature</h1>
-<li>투두리스트</li>
+<li>TO DO LIST</li>
+<img src="https://user-images.githubusercontent.com/75060858/151648072-8dbb6a55-f19f-4398-8891-828783440605.png"></img>
+<li>greeting</li>
